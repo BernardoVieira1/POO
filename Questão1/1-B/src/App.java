@@ -8,7 +8,6 @@ public class App {
         
         System.out.println("Digite uma data (ex: 13/03/2003):");
         String dataI = ler.nextLine();
-        Date date = new Date(); 
 
         SimpleDateFormat formatar = new SimpleDateFormat("dd/mm/yyyy");
 

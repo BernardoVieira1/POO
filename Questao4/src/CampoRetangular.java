@@ -1,10 +1,10 @@
 public class CampoRetangular {
     private ParOrdenado posicaoCanto;
-    private int compriHorizontal;
-    private int compriVertical;
+    private double compriHorizontal;
+    private double compriVertical;
     private Bola bola;
 
-    public CampoRetangular(ParOrdenado posicaoCanto, int compriVertical, int compriHorizontal, Bola bola) {
+    public CampoRetangular(ParOrdenado posicaoCanto, double compriVertical, double compriHorizontal, Bola bola) {
         this.posicaoCanto = posicaoCanto;
         this.compriVertical = compriVertical;
         this.compriHorizontal = compriHorizontal;
@@ -15,11 +15,11 @@ public class CampoRetangular {
         return posicaoCanto;
     }
 
-    public int getCompriVertical() {
+    public double getCompriVertical() {
         return compriVertical;
     }
 
-    public int getCompriHorizontal() {
+    public double getCompriHorizontal() {
         return compriHorizontal;
     }
 
@@ -58,12 +58,33 @@ public class CampoRetangular {
     public void movimentaBola(){
          
         if(bolaTocaBordaEsquerda()){
-            bola.setvHorizontal((bola.getvHorizontal() * -1));
-            System.out.println("*Bateu na borda esquerda*");
- 
+            if(bolaTocaBordaSuperior()){
+                bola.setvVertical((bola.getvVertical() * -1));
+                bola.setvHorizontal((bola.getvHorizontal() * -1));
+                System.out.println("*Bateu no canto superior esquerdo*");
+            }else if(bolaTocaBordaInferior()){
+                bola.setvVertical((bola.getvVertical() * -1));
+                bola.setvHorizontal((bola.getvHorizontal() * -1));
+                System.out.println("*Bateu no canto inferior esquerdo*");
+            }else{
+                bola.setvHorizontal((bola.getvHorizontal() * -1));
+                System.out.println("*Bateu na borda esquerda*");
+            }
+            
         }else if(bolaTocaBordaDireita()){
-            bola.setvHorizontal((bola.getvHorizontal() * -1));
-            System.out.println("*Bateu na borda direita*");
+            if(bolaTocaBordaSuperior()){
+                bola.setvVertical((bola.getvVertical() * -1));
+                bola.setvHorizontal((bola.getvHorizontal() * -1));
+                System.out.println("*Bateu no canto superior direito*");
+            }else if(bolaTocaBordaInferior()){
+                bola.setvVertical((bola.getvVertical() * -1));
+                bola.setvHorizontal((bola.getvHorizontal() * -1));
+                System.out.println("*Bateu no canto inferior direito*");
+            }else{
+                bola.setvHorizontal((bola.getvHorizontal() * -1));
+                System.out.println("*Bateu na borda direita*");
+            }
+            
 
         }else if(bolaTocaBordaSuperior()){
             bola.setvVertical((bola.getvVertical() * -1));
@@ -73,6 +94,8 @@ public class CampoRetangular {
             bola.setvVertical((bola.getvVertical() * -1));
             System.out.println("*Bateu na borda inferior*");
         }
+
+
         
         bola.movimenta();
         System.out.println(bola.toString());  

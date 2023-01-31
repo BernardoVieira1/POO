@@ -9,27 +9,40 @@ public class TesteCampo {
         System.out.println("========== Dados do campo ==========");
         System.out.println("Digite a posição do campo");
         System.out.print("X: ");
-        int posiCampoX = ler.nextInt();
+        double posiCampoX = ler.nextInt();
         System.out.print("Y: ");
-        int posiCampoY = ler.nextInt();
+        double posiCampoY = ler.nextInt();
         System.out.print("Digite a altura do campo: ");
-        int altura = ler.nextInt();
+        double altura = ler.nextInt();
         System.out.print("Digite a largura do campo: ");
-        int largura = ler.nextInt();
+        double largura = ler.nextInt();
         
         //Pegando as variaves para criar a bola
         System.out.println("========== Dados da bola ==========");
+        System.out.print("Digite o raio que a bola vai ter: ");
+        double raioBola = ler.nextInt();
         System.out.println("Digite a posição da bola");
         System.out.print("X: ");
-        int posiBolaX = ler.nextInt();
+        double posiBolaX = ler.nextInt();
+        
+        //Tratamento para não colocar a bola fora do campo;
+        while((posiBolaX-raioBola <= posiCampoX) || (posiBolaX+raioBola >= posiCampoX+largura)){
+            System.out.print("Você digitou uma posição fora do campo, digite outro valor para X: ");
+            posiBolaX = ler.nextInt();
+        }
+
         System.out.print("Y: ");
-        int posiBolaY = ler.nextInt();
-        System.out.print("Digite o raio que a bola vai ter: ");
-        int raioBola = ler.nextInt();
+        double posiBolaY = ler.nextInt();
+
+        while((posiBolaY-raioBola <= posiCampoY) || (posiBolaY+raioBola >= posiCampoY+altura)){
+            System.out.print("Você digitou uma posição fora do campo, digite outro valor para Y: ");
+            posiBolaY = ler.nextInt();
+        }
+
         System.out.print("Digite a velocidade horizontal que a bola vai se mover: ");
-        int veloHoBola = ler.nextInt();
+        double veloHoBola = ler.nextInt();
         System.out.print("Digite a velocidade vertical que a bola vai se mover: ");
-        int veloVeBola = ler.nextInt();
+        double veloVeBola = ler.nextInt();
         
         ParOrdenado posicaoBola = new ParOrdenado(posiBolaX, posiBolaY);
         ParOrdenado posicaoCampo = new ParOrdenado(posiCampoX, posiCampoY);
@@ -38,10 +51,8 @@ public class TesteCampo {
         
         CampoRetangular campo = new CampoRetangular(posicaoCampo, altura, largura, bola);
         
-        
-
         System.out.println("A posição inicial da bola é: " + posicaoBola.toString());
-        for(int i = 0; i<30;i++){
+        for(int i = 0; i< 30;i++){
             campo.movimentaBola();
 
         }

@@ -4,8 +4,8 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Porta porta1 = new Porta(TipoPorta.PORTA_SIMPLES, 2, 1, false);
-        Porta porta2 = new Porta(TipoPorta.PORTA_PADRAO, 3, 1, true);
-        Porta porta3 = new Porta(TipoPorta.PORTA_LUXO, 2, 1, false);
+        Porta porta2 = new Porta(TipoPorta.PORTA_PADRAO, 3, 2, true);
+        Porta porta3 = new Porta(); // porta com valores padrões
         Porta porta4 = new Porta(TipoPorta.PORTA_LUXO, 8, 4, true);
         
         System.out.println("=============Porta-1=============");

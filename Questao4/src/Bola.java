@@ -1,29 +1,29 @@
 public class Bola {
     private ParOrdenado centro;
-    private int vHorizontal;
-    private int vVertical;
-    private final int r;
+    private double vHorizontal;
+    private double vVertical;
+    private final double r;
     
-    public Bola(ParOrdenado centro, int vHorizontal, int vVertical, int r) {
+    public Bola(ParOrdenado centro, double vHorizontal, double vVertical, double r) {
         this.centro = centro;
         this.vHorizontal = vHorizontal;
         this.vVertical = vVertical;
         this.r = r;
     }
 
-    public int getvHorizontal() {
+    public double getvHorizontal() {
         return vHorizontal;
     }
 
-    public void setvHorizontal(int vHorizontal) {
+    public void setvHorizontal(double vHorizontal) {
         this.vHorizontal = vHorizontal;
     }
 
-    public int getvVertical() {
+    public double getvVertical() {
         return vVertical;
     }
 
-    public void setvVertical(int vVertical) {
+    public void setvVertical(double vVertical) {
         this.vVertical = vVertical;
     }
 
@@ -31,7 +31,7 @@ public class Bola {
         return centro;
     }
 
-    public int getR() {
+    public double getR() {
         return r;
     }
 
