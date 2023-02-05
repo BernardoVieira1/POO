@@ -13,7 +13,7 @@ public class App {
 
         Date dateII = formatar.parse(dataI);
         
-        formatar.applyPattern("dd,MMMM 'de' yyyy");
+        formatar.applyPattern("MMMM, dd 'de' yyyy");
         
         String noPadrao = formatar.format(dateII);
 
